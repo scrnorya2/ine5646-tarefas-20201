@@ -22,9 +22,29 @@ No mesmo diretório **servidor**,  crie o arquivo **.env** e adicione o seguinte
 PORTA=3000
 ```
 
-Acesse o [console do Firebase](https://console.firebase.google.com) e crie um projeto. Depois você deve criar, **ao lado do arquivo .env**, os dois arquivos abaixo contendo as informações específicas do projeto criado:
+### Criação e Configuração no Firebase
 
-Arquivo **firebase-adminsdk.json** (substitua os "..." pelos dados do seu projeto):
+Acesse o [console do Firebase](https://console.firebase.google.com) e proceda conforme as instruções a seguir.
+
+### Criar novo projeto
+
+1. Adicione novo projeto e forneça um nome para o projeto.
+
+2. Desative o Google Analytics (não é necessário para o exercício)
+
+3. Clique no botão "Criar Projeto"
+
+### Criar arquivo firebase-adminskd.json
+
+Com o projeto criado,
+
+1. Clique no botão (ícone roda-dentada) ao lado de "Visão geral do projeto" e selecione a opção "Configurações do Projeto"
+
+2. Selecione a aba "Settings/Contas de Serviço"
+
+3. Na aba "SDK Admin do Firebase", clique em "Gerar nova chave primária" e depois em "Gerar chave". Será gerado um arquivo JSON. Salve este arquivo dentro do diretório *servidor* da aplicação usando como nome do arquivo **firebase-adminsdk.json**.
+
+O conteúdo do arquivo será um objeto JSON com os seguintes atributos (no lugar de *...* aparecerão os dados específicos do seu projeto):
 
 ```bash
 {
@@ -41,18 +61,61 @@ Arquivo **firebase-adminsdk.json** (substitua os "..." pelos dados do seu projet
 }
 ```  
 
-Arquivo **firebase-config.json** (substitua os "..." pelos dados do seu projeto):
+### Criar arquivo firebase-config.json
+
+1. Selecione a aba "Settings/Geral".
+
+2. Na seção "Seus aplicativos" (que deverá mostrar a mensagem *Não há apps no seu projeto*) clique no terceiro botão (à direita do botão android), que mostra o símbolo **</>**.
+
+3. Registre o app, preenchendo o campo *Apelido do app*. Coloque qualquer nome, por exemplo, *app-usuarios*.
+
+4. Clique no botão "Registrar app".
+
+5. Clique no botão "Continuar no console".
+
+6. Agora na seção "Seus aplicativos" aparece o nome que você colocou na etapa 3 acima (no exemplo, *app-usuarios*). Na seção "Firebase SDK snippet", selecione a opção "Configuração" (está selecinada a opção "CDN").
+
+7. Copie o valor da constante *firebaseConfig*, que é um objeto JavaScript com vários atributos (apiKey, authDomain, etc).
+
+8. No diretório *servidor*, crie o arquivo **firebase-config.json** (que ficará ao lado do arquivo *firebase-adminsdk.json*) e cole o objeto copiado na etapa 7. Coloque todos os atributos entre aspas (uma vez que é um objeto JSON). O conteúdo do arquivo será (no lugar de *...* devem estar os valores da sua aplicação):
 
 ```bash
 {
   "apiKey": "...",
-    "authDomain": "....firebaseapp.com",
-    "databaseURL": "https://....firebaseio.com",
-    "projectId": "...",
-    "storageBucket": "",
-    "messagingSenderId": "..."
+  "authDomain": "....firebaseapp.com",
+  "databaseURL": "https://....firebaseio.com",
+  "projectId": "...",
+  "storageBucket": "",
+  "messagingSenderId": "...",
+  "appId": "..."
 }
 ```
+
+## Habilitar serviço de autenticação de usuários
+
+O Firebase fornece diversos servidos (hospedagem, autenticação, base de dados, etc). No exercício utiliza-se apenas o serviço de autenticação de usuários.
+
+1. Clique na opção "Desenvolver/Authentication".
+
+2. Na aba "Users", clique no botão "Configurar método de login".
+
+3. Selecione a opção "E-mail/senha" e clique no primeiro botão "Ativar" ("Permite que os usuários se inscrevam usando o endereço de e-mail e a senha deles").
+
+4. Clique no botão "Salvar". O provedor "E-mail/senha" agora tem status "Ativado".
+
+5. Clique na aba "Users" e em seguida no botão "Adicionar usuário".
+
+6. Digite um e-mail válido que você tenha acesso (para ler e-mails que o Firebase irá lhe enviar) e uma senha (esta senha é exclusiva para este exercício, não é a senha do e-mail informado). Este e-mail será o administrador no exercício app-usuarios. Clique no botão "Adicionar usuário".
+
+## Cadastrar administrador da aplicação
+
+No exercício o e-mail cadastrado na etapa 6 acima tem a capacidade de cadastrar novos usuários (identifiados por seus respectivos e-mails). Para que isso seja possível:
+
+1. Abra um terminal e entre no diretório *servidor*.
+
+2. Digite **npm run build**.
+
+3. Cadastre o administrador digitando `node build/scripts/cria_admin.js e-mail-do-administrador`.
 
 ### Durante o desenvolvimento
 
@@ -97,9 +160,3 @@ Para gerar a versão em produção do lado servidor entre no diretório **servid
 Para executar a aplicação em modo produção entre no diretório **servidor** e digite
 
 `node build/app.js`
-
-##### Cadastrando administrador da aplicação
-
-Para cadastrar novos usuários é preciso que, **antes**, um usuário tenha o papel de administrador. Para isso cadastre um e-mail diretamente no console do Firebase e depois execute
-
-`node build/cria_admin.js`
