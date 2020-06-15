@@ -16,6 +16,12 @@ O código da aplicação está organizado na forma de ***microserviços***. Há 
 
 A aplicação web, que contém a interface com o usuário, interage com os microserviços para poder atender as demandas feitas pelos usuários.
 
+## Objetivo
+
+O objetivo da aplicação é demonstrar uma forma de implementação da arquitetura de microserviços. A imagem a seguir  mostra a arquitetura específica desta aplicação.
+
+ ![esquema-geral.jpg](esquema-geral.jpg)
+
 ## Tecnologias Utilizadas
 
 Os microserviços são implementados com o *framework* **[Moleculer](https://moleculer.services/)**. A aplicação web utiliza, no lado servidor, o *framework* **[Express](https://expressjs.com/)** e, no lado cliente, a biblioteca **[React](https://pt-br.reactjs.org/)**.
