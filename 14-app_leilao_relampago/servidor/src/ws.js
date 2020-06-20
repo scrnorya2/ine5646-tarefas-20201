@@ -134,7 +134,7 @@ function processaMsgRecebida(msg: MensagemRecebida, clientes: Set<WebSocket>, lo
         leilao
       }
       enviaMensagemParaClientes(new Set().add(cliente), msgEnviar)
-      const demais = filtraSet(clientes, c => c != cliente)  //FIXME deveria ser apenas para quem participa do leilao
+      const demais = filtraSet(clientes, c => c != cliente) 
       msgEnviar = {
         type: 'NOVO_USUARIO_EM_LEILAO',
         vendedor: msg.vendedor,

@@ -34,7 +34,7 @@ export function useWS(ws: WS): [EventoConexao, EventoMsg, Comandos] {
   function fechaConexao(): boolean {
     let fechou = false
     if (cliente && estaConectado()) {
-      cliente.close() //FIXME incluir motivo?
+      cliente.close()
       fechou = true
     }
     return fechou

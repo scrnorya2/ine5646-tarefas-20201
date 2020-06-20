@@ -1,6 +1,6 @@
 # UFSC-CTC-INE-INE5646 Programação para Web :: App Leilão Relâmpago
 
-Aplicação que permite ao usuário participar de leilões fictícios de produtos. Um usuário anuncia um produto, indicando o nome e o preço mínimo do produto, e os demais disputam a compra do produto fazendo ofertas.
+Aplicação que permite ao usuário participar de leilões fictícios de produtos. Um usuário anuncia um produto indicando o nome e o preço mínimo do produto e os demais disputam a compra do produto fazendo ofertas.
 
 ## Objetivo do Exercício
 
