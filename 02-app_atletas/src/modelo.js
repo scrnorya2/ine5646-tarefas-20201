@@ -35,7 +35,7 @@ class Equipe {
 
   encontreAtletasComAlturmaMinima (alturaMinima) {
     // FIXME bug!
-    return this.__atletas
+    return this.__atletas.filter(a => a.altura >= alturaMinima)
   }
 }
 
