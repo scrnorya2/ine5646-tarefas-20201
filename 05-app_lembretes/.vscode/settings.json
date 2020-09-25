@@ -9,6 +9,7 @@
         {
           "directory": "./servidor", "changeProcessCWD": true
         }
-      ]
+      ],
+      "npm.enableRunFromFolder": true,
   
 }

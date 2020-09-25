@@ -176,7 +176,7 @@ function Login (props: Props) {
             <label className='checkbox'>
               <input type='checkbox'
                 value={estado.novoUsuario}
-                onChange={novoUsuario}/>novo usuário
+                onChange={novoUsuario}/> novo usuário
             </label>
             <div className='field'>
               <label className='label'>Login</label>
