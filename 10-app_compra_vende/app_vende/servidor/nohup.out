@@ -1,2 +1,20 @@
 Servidor no ar na porta 5000...
 Conectou com servidor Rabit.
+Aviso: Encerrando conexão com servidor Rabbit...
+events.js:292
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:205:27)
+Emitted 'error' event on ChannelModel instance at:
+    at Connection.emit (events.js:315:20)
+    at Connection.C.onSocketError (/home/ayron.scartezini/repos/ine5646-tarefas-20201/10-app_compra_vende/app_vende/servidor/node_modules/amqplib/lib/connection.js:353:10)
+    at TLSSocket.emit (events.js:327:22)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21) {
+  errno: 'ECONNRESET',
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
