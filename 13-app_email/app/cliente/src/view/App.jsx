@@ -182,6 +182,37 @@ function App () {
         <div className='message-header'>
             UFSC - CTC - INE - INE5646 :: App Email {identificacao}
         </div>
+        <table class="table is-bordered is-striped is-fullwidth">
+          <thead>
+            <tr>
+              <th class="tg-0lax">Nome</th>
+              <th class="tg-0lax">Matrícula</th>
+              <th class="tg-0lax">Programa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0pky">Ayron Scartezini do Nascimento</td>
+              <td class="tg-0pky">18105484</td>
+              <td class="tg-0pky">App</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">Douglas Gomes dos Santos</td>
+              <td class="tg-0pky">19104520</td>
+              <td class="tg-0pky">ms_email & NATS</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">Gustavo Lacombe de Castro</td>
+              <td class="tg-0pky">19103278</td>
+              <td class="tg-0pky">?</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">Rafael Elisio Michalski</td>
+              <td class="tg-0pky">19100878</td>
+              <td class="tg-0pky">?</td>
+            </tr>
+          </tbody>
+        </table>
         <div className='message-body'>
           { estado.token !== undefined &&
             <NavBar onOpcaoSelecionada= {(opcao: OpcaoMenu) => dispatch({type: 'EXECUTE_OPCAO', opcao})}/>
