@@ -56,8 +56,21 @@ export async function enviaEmailDePara(broker: ServiceBroker, token: TokenJWT, p
 export async function leEmailsEnviados(broker: ServiceBroker, 
   token: TokenJWT, qtd: number): Promise<RespostaLeEmailsEnviados> {
   const MAX_EMAILS: number = parseInt(process.env.MAX_MSGS_LIDAS,10)  || 5
+  try {
+    const tokenRenovado: TokenJWT | null = await renovaTokenJWT(broker, token)
 
-  return {ok: false, motivo: 'Ainda não implementado'}
+    if (tokenRenovado == null)
+      throw new Error('Token inválido ou expirado')
+
+    const tokenDecodificado: TokenJWTDecodificado = jwt.decode(tokenRenovado)
+
+    const emails: Array<EmailEnviado> = await leTodosEmailsDe(tokenDecodificado.email, MAX_EMAILS);
+
+    return {ok: true, token: tokenRenovado, emails}
+  } catch (erro) {
+    console.log('Erro em leEmailsEnviados:', erro)
+    return {ok: false, motivo: `Erro: ${erro.message}`}
+  }
 }
 
 export async function usuarioRemovido(email: Email) {
