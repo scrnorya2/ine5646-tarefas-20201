@@ -194,22 +194,22 @@ function App () {
             <tr>
               <td class="tg-0pky">Ayron Scartezini do Nascimento</td>
               <td class="tg-0pky">18105484</td>
-              <td class="tg-0pky">App</td>
+              <td class="tg-0pky">app-email</td>
             </tr>
             <tr>
               <td class="tg-0pky">Douglas Gomes dos Santos</td>
               <td class="tg-0pky">19104520</td>
-              <td class="tg-0pky">ms_email & NATS</td>
+              <td class="tg-0pky">ms_email & nats-server</td>
             </tr>
             <tr>
               <td class="tg-0pky">Gustavo Lacombe de Castro</td>
               <td class="tg-0pky">19103278</td>
-              <td class="tg-0pky">?</td>
+              <td class="tg-0pky">ms_mensageiro</td>
             </tr>
             <tr>
               <td class="tg-0pky">Rafael Elisio Michalski</td>
               <td class="tg-0pky">19100878</td>
-              <td class="tg-0pky">?</td>
+              <td class="tg-0pky">ms_autentica</td>
             </tr>
           </tbody>
         </table>
